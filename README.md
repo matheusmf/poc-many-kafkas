@@ -1,0 +1,1 @@
+Micronaut Application with many Kafkas connections.

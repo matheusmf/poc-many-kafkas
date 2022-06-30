@@ -1,0 +1,29 @@
+micronaut:
+  application:
+    name: pocManyKafkas
+kafka:
+    group1:
+      bootstrap:
+        servers: localhost:9092
+      topics:
+        test1: "test1"
+    group2:
+      bootstrap:
+        servers: localhost:29092
+      topics:
+        test2: "test2"
+    group3:
+      bootstrap:
+        servers: ${URL_KAFKA}
+      security:
+        protocol: "SASL_SSL"
+      sasl:
+        mechanism: "PLAIN"
+        jaas:
+          config: org.apache.kafka.common.security.plain.PlainLoginModule required username='${API_KEY_KAFKA}' password='${API_SECRET_KAFKA}';
+      topics:
+        test3: "test3"
+netty:
+  default:
+    allocator:
+      max-order: 3
